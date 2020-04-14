@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<title>SMASH RISING</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
+
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+/*table tbody{color: black}*/
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">
+      <img height="30" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/Boku_no_Hero_Academia_Logo.png"/></span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:200px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img height="100" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/favicon.png" class="w3-circle w3-margin-right">
+      <!-- <iframe src="https://discordapp.com/widget?id=593021029350113280&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe> -->
+    </div>
+    
+    <!--
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>Mike</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+  </div>-->
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:200px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+      <h2>SMASH RISING Database</h2>
+    <h4><b> Latest Cards</b></h4>
+    <h5>Last Updated: 04-14-19</h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+      <div class="w3-container">
+      <table class="table table-striped table-hover" id="latest-cards">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Card Image</th>
+              <!-- <th>Rarity</th> -->
+              <th>Character</th>
+              <th>Color</th>
+              <th>Total PR</th>
+              <th>HP</th>
+              <th>SP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>HIT</th>
+              <th>AVO</th>
+              <th>LUK</th>
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+
+              <td></td>
+
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/momo-heal-per-hit.png" /></td>
+              <!-- <td>5</td> -->
+
+              <td>Yaoyorozu Momo</td>
+
+              <td>Blue</td>
+
+              <!-- PR -->   <td>114.05</td>
+
+              <!-- HP -->   <td>5830</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>651</td>
+              <!-- DEF -->  <td>4528</td>
+              <!-- HIT -->  <td>1313</td>
+              <!-- AVO -->  <td>1535</td>
+              <!-- LUK -->  <td>1109</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="154" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/dabi-ult-1.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Dabi</td>
+              <!-- Color -->        <td>Blue</td>
+
+              <!-- PR -->   <td>65.93</td>
+
+              <!-- HP -->   <td>2753</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>1696</td>
+              <!-- DEF -->  <td>1696</td>
+              <!-- HIT -->  <td>1988</td>
+              <!-- AVO -->  <td>1221</td>
+              <!-- LUK -->  <td>1273</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/shig-ult-1.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Tomura Shigaraki </td>
+              <!-- Color -->        <td>Red</td>
+
+              <!-- PR -->   <td>85.92</td>
+
+              <!-- HP -->   <td>4444</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>3046</td>
+              <!-- DEF -->  <td>666</td>
+              <!-- HIT -->  <td>666</td>
+              <!-- AVO -->  <td>1897</td>
+              <!-- LUK -->  <td>1797</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="154" type="submit" value="&gt;" /></td> -->
+            </tr>
+          </tbody>
+        </table>
+        </div>
+  </div>
+
+  <!-- <div class="w3-container">
+    <!-- <h4>Stat Cards Tier List</h4> -->
+    <!-- <br> -->
+  <!-- </div> -->
+  <hr>
+  <div class="w3-container w3-padding-32">
+      <h2>R Factor Tier List by Power Rating</h2>
+    <div class="w3-row">
+      <div class="w3-container w3-third">
+        <h4 class="w3-bottombar w3-border-red">力</h4>
+        <table class="table table-striped table-hover" id="力">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Card Image</th>
+              <!-- <th>Rarity</th> -->
+              <th>Character</th>
+              <!-- <th>Color</th> -->
+              <th>Total PR</th>
+              <th>HP</th>
+              <th>SP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>HIT</th>
+              <th>AVO</th>
+              <th>LUK</th>
+
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/afo-ult-1.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>All for One</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>107.19</td>
+
+              <!-- HP -->   <td>3261</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>4444</td>
+              <!-- DEF -->  <td>2767</td>
+              <!-- HIT -->  <td>666</td>
+              <!-- AVO -->  <td>666</td>
+              <!-- LUK -->  <td>1140</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/shig-ult-1.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Tomura Shigaraki </td>
+              <!-- Color        <td>Red</td> -->
+
+              <!-- PR -->   <td>85.92</td>
+
+              <!-- HP -->   <td>4444</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>3046</td>
+              <!-- DEF -->  <td>666</td>
+              <!-- HIT -->  <td>666</td>
+              <!-- AVO -->  <td>1897</td>
+              <!-- LUK -->  <td>1797</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="154" type="submit" value="&gt;" /></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="w3-container w3-third">
+        <h4 class="w3-bottombar w3-border-green">技</h4>
+        <table class="table table-striped table-hover" id="技">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Card Image</th>
+              <!-- <th>Rarity</th> -->
+              <th>Character</th>
+              <!-- <th>Color</th> -->
+              <th>Total PR</th>
+              <th>HP</th>
+              <th>SP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>HIT</th>
+              <th>AVO</th>
+              <th>LUK</th>
+
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/shoto-white-day.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Shoto</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>116.15</td>
+
+              <!-- HP -->   <td>3599</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>5214</td>
+              <!-- DEF -->  <td>2412</td>
+              <!-- HIT -->  <td>1306</td>
+              <!-- AVO -->  <td>750</td>
+              <!-- LUK -->  <td>1847</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/deku-white-day.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Deku</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>112.68</td>
+
+              <!-- HP -->   <td>5000</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>3024</td>
+              <!-- DEF -->  <td>2825</td>
+              <!-- HIT -->  <td>1601</td>
+              <!-- AVO -->  <td>774</td>
+              <!-- LUK -->  <td>1816</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/shoto-internship.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Shoto</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>88.59</td>
+
+              <!-- HP -->   <td>3103</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>3628</td>
+              <!-- DEF -->  <td>1812</td>
+              <!-- HIT -->  <td>1571</td>
+              <!-- AVO -->  <td>1200</td>
+              <!-- LUK -->  <td>1288</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="w3-container w3-third">
+        <h4 class="w3-bottombar w3-border-blue">速</h4>
+        <table class="table table-striped table-hover" id="速">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Card Image</th>
+              <!-- <th>Rarity</th> -->
+              <th>Character</th>
+              <!-- <th>Color</th> -->
+              <th>Total PR</th>
+              <th>HP</th>
+              <th>SP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>HIT</th>
+              <th>AVO</th>
+              <th>LUK</th>
+
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/momo-heal-per-hit.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Yaoyorozu Momo</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>114.05</td>
+
+              <!-- HP -->   <td>5830</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>651</td>
+              <!-- DEF -->  <td>4528</td>
+              <!-- HIT -->  <td>1313</td>
+              <!-- AVO -->  <td>1535</td>
+              <!-- LUK -->  <td>1109</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/uraraka-vday.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Ochaco Uraraka</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>?</td>
+
+              <!-- HP -->   <td>2515</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>4293</td>
+              <!-- DEF -->  <td>2183</td>
+              <!-- HIT -->  <td>1174</td>
+              <!-- AVO -->  <td>1104</td>
+              <!-- LUK -->  <td>1761</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/momo-vday.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Yaoyorozu Momo</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>?</td>
+
+              <!-- HP -->   <td>4037</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>2580</td>
+              <!-- DEF -->  <td>3513</td>
+              <!-- HIT -->  <td>1027</td>
+              <!-- AVO -->  <td>537</td>
+              <!-- LUK -->  <td>1236</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="w3-container w3-third">
+        <h4 class="w3-bottombar w3-border-yellow">和</h4>
+       <table class="table table-striped table-hover" id="和">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Card Image</th>
+              <!-- <th>Rarity</th> -->
+              <th>Character</th>
+              <!-- <th>Color</th> -->
+              <th>Total PR</th>
+              <th>HP</th>
+              <th>SP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>HIT</th>
+              <th>AVO</th>
+              <th>LUK</th>
+
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/deku-ult-1.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Deku</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>?</td>
+
+              <!-- HP -->   <td>3202</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>1977</td>
+              <!-- DEF -->  <td>2961</td>
+              <!-- HIT -->  <td>1523</td>
+              <!-- AVO -->  <td>1537</td>
+              <!-- LUK -->  <td>1449</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="w3-container w3-third">
+        <h4 class="w3-bottombar w3-border-purple">乱</h4>
+        <table class="table table-striped table-hover" id="乱">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Card Image</th>
+              <!-- <th>Rarity</th> -->
+              <th>Character</th>
+              <!-- <th>Color</th> -->
+              <th>Total PR</th>
+              <th>HP</th>
+              <th>SP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>HIT</th>
+              <th>AVO</th>
+              <th>LUK</th>
+
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ojiro-ult-1.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Mashirao Ojiro</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>91.01</td>
+
+              <!-- HP -->   <td>3212</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>3129</td>
+              <!-- DEF -->  <td>2326</td>
+              <!-- HIT -->  <td>1601</td>
+              <!-- AVO -->  <td>1223</td>
+              <!-- LUK -->  <td>1516</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+
+            <tr>
+              <td><img height="35" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/ultimate-skill.png" /></td>
+              <td><img height="70" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/toru-ult-1.png" /></td>
+              <!-- Rarity       <td>5</td> -->
+              <!-- Character -->    <td>Toru Hagakure</td>
+              <!-- Color        <td>Blue</td> -->
+
+              <!-- PR -->   <td>80.92</td>
+
+              <!-- HP -->   <td>2317</td>
+              <!-- SP -->   <td>0</td>
+              <!-- ATK -->  <td>2180</td>
+              <!-- DEF -->  <td>3051</td>
+              <!-- HIT -->  <td>1639</td>
+              <!-- AVO -->  <td>2245</td>
+              <!-- LUK -->  <td>1552</td>
+
+              <!-- <td><input class="btn btn-default btn-xs" name="155" type="submit" value="&gt;" /></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h4>SMASH RISING Database</h4>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+<script type="text/javascript">
+// Initialize DataTables for each color attribute and
+//set the width of the search bar to fit the column
+    $('#力, #技, #速, #和, #乱').DataTable({
+        responsive: true,
+        initComplete: function () {
+        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+        }
+    });
+    /*
+    $('#技').DataTable({
+        responsive: true,
+        initComplete: function () {
+        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+        }
+    });
+    $('#速').DataTable({
+        responsive: true,
+        initComplete: function () {
+        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+        }
+    });
+    $('#和').DataTable({
+        responsive: true,
+        initComplete: function () {
+        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+        }
+    });
+    $('#乱').DataTable({
+        responsive: true,
+        initComplete: function () {
+        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+        }
+    });
+    $('#latest-cards').DataTable({
+      responsive: true
+    });
+    */
+</script>
+
+</body>
+</html>
