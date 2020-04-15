@@ -77,17 +77,46 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-      <h2>SMASH RISING Tier List</h2>
-    <h4><b> Overall STR based on R factor stats</b></h4>
-    <h5>Last Updated: 04-14-2020</h5>
+      <h2>SMASH RISING STR Calculator</h2>
+    <h4><b> Calculate how much power your card contributes to your team!</b></h4>
+    <!-- <h5>Last Updated: 04-14-2020</h5> -->
   </header>
 
   <div class="w3-container w3-padding-32">
     <div class="w3-row">
-      <div class="w3-container">
-        
-        
-      </div>
+      
+        <div class="w3-card-4">
+            <div class="w3-container w3-teal">
+                <h2 id="str">STR: 0</h2>
+            </div>
+            <div class="w3-container w3-padding">
+            <p>      
+            <label class="w3-text-teal"><b>HP Value</b></label>
+            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="hpval" name="hpval"></p>
+            <p>      
+            <label class="w3-text-teal"><b>SP Value</b></label>
+            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="spval" name="spval"></p>
+            <p>      
+            <label class="w3-text-teal"><b>ATK Value</b></label>
+            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="atkval" name="atkval"></p>
+            <p>      
+            <label class="w3-text-teal"><b>DEF Value</b></label>
+            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="defval" name="defval"></p>
+            <p>      
+            <label class="w3-text-teal"><b>HIT Value</b></label>
+            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="hitval" name="hitval"></p>
+            <p>      
+            <label class="w3-text-teal"><b>AVO Value</b></label>
+            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="avoval" name="avoval"></p>
+            <p>      
+            <label class="w3-text-teal"><b>LUK Value</b></label>
+            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="lukval" name="lukval"></p>
+
+            <button class="w3-btn w3-teal" onclick="calculate()">Calculate</button>
+            <input class="w3-btn w3-teal" type="reset" onclick="reset()">
+            </div>
+        </div>
+      
       
     </div>
   </div>
@@ -103,6 +132,32 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
 <script>
+// Calculate STR
+function calculate(){
+    STR = 0;
+    hp = document.getElementById("hpval").value;
+    sp = document.getElementById("spval").value;
+    atk = document.getElementById("atkval").value;
+    def = document.getElementById("defval").value;
+    hit = document.getElementById("hitval").value;
+    avo = document.getElementById("avoval").value;
+    luk = document.getElementById("lukval").value;
+
+    STR = hp/100 + atk/100 + def/100 + hit/1000 + avo/1000 + luk/1000;
+    document.getElementById("str").innerHTML = "STR: " + Math.floor(STR);
+}
+
+// Reset calculator values
+function reset(){
+    document.getElementById("hpval").value = 0;
+    document.getElementById("spval").value = 0;
+    document.getElementById("atkval").value = 0;
+    document.getElementById("defval").value = 0;
+    document.getElementById("hitval").value = 0;
+    document.getElementById("avoval").value = 0;
+    document.getElementById("lukval").value = 0;
+}
+
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
@@ -131,12 +186,12 @@ function w3_close() {
 
 <script type="text/javascript">
 //set the width of the search bar to fit the column
-    $('#tierlist').DataTable({
-        responsive: true,
-        initComplete: function () {
-        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
-        }
-    });
+//     $('#tierlist').DataTable({
+//         responsive: true,
+//         initComplete: function () {
+//         $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+//         }
+//     });
     
 </script>
 
