@@ -107,25 +107,23 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           </thead>
 
           <tbody id="datarows">
-            <!-- U_146_all_might -->
+            <!-- U_146_all_might --><!--
             <tr>
               <td><img height="35" src="https://raw.githubusercontent.com/mha-smashrising/rfactor-db/master/assets/logo_skill_U.png" /></td>
               <td><img height="70" src="https://raw.githubusercontent.com/mha-smashrising/rfactor-db/master/assets/U_146_all_might.jpg" /></td>
-              <!-- Rarity -->       <td>5</td>
-              <!-- Character -->    <td>All Might</td>
-              <!-- Attribute -->    <td>Purple</td>
-              <!-- RFactor Scene --><td>SMASH HURRICANE</td>
-              <!-- STR -->          <td>146</td>
-              <!-- HP -->           <td>4348</td>
-              <!-- SP -->           <td>0</td>
-              <!-- ATK -->          <td>5208</td>
-              <!-- DEF -->          <td>4742</td>
-              <!-- HIT -->          <td>1173</td>
-              <!-- AVO -->          <td>1055</td>
-              <!-- LUK -->          <td>1473</td>
+              <!-- Rarity -->       <!--<td>5</td>
+              <!-- Character -->    <!--<td>All Might</td>
+              <!-- Attribute -->    <!--<td>Purple</td>
+              <!-- RFactor Scene --><!--<td>SMASH HURRICANE</td>
+              <!-- STR -->          <!--<td>146</td>
+              <!-- HP -->           <!--<td>4348</td>
+              <!-- SP -->           <!--<td>0</td>
+              <!-- ATK -->          <!--<td>5208</td>
+              <!-- DEF -->          <!--<td>4742</td>
+              <!-- HIT -->          <!--<td>1173</td>
+              <!-- AVO -->          <!--<td>1055</td>
+              <!-- LUK -->          <!--<td>1473</td>-->
             </tr>
-            
-
           </tbody>
         </table>
       </div>
@@ -143,36 +141,47 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 
-<script>
-// Data URL
-const URL = "https://raw.githubusercontent.com/mha-smashrising/rfactor-db/master/data.json";
+<script type="text/javascript">
+$(document).ready(function() {
+  // initialize DataTable
+  var table = $('#tierlist').DataTable({
+      responsive: true,
+      initComplete: function () {
+        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+      }
+  });
 
-// Promise fetch the data and display it
-fetch(URL)
-  .then((response) => response.json())
-  .then((cards) => datarows.innerHTML = displayCards(cards));
+  // Data URL
+  const URL = "https://raw.githubusercontent.com/mha-smashrising/rfactor-db/master/data.json";
 
-const displayCards = (cards) => {
-	var out = "";
-  var i;
-  for(i = 0; i<cards.length; i++) {
-  	out += '<tr><td><img height="35" src="' + cards[i].skill + '" /></td>' +
-		    '<td><img height="70" src="' + cards[i].cardImage + '" /></td>' +
-              '<td>' + cards[i].rarity + '</td>' + 
-              '<td>' + cards[i].character + '</td>' + 
-              '<td><img height="35" src="' + cards[i].attribute + '" /></td>' +
-              '<td>' + cards[i].rFactorScene + '</td>' + 
-              '<td>' + cards[i].STR + '</td>' + 
-              '<td>' + cards[i].HP + '</td>' + 
-              '<td>' + cards[i].SP + '</td>' + 
-              '<td>' + cards[i].ATK + '</td>' + 
-              '<td>' + cards[i].DEF + '</td>' + 
-              '<td>' + cards[i].HIT + '</td>' + 
-              '<td>' + cards[i].AVO + '</td>' + 
-              '<td>' + cards[i].LUK + '</td></tr>' ; 
+  // Promise fetch the data and display it
+  fetch(URL)
+    .then((response) => response.json())
+    .then((cards) => addData(cards));
+
+  // add fetched cards to DataTable
+  function addData(cards){
+    cards.forEach(card => {
+      table.row.add([
+      '<img height="35" src="' + card.skill + '" />',
+      '<img height="70" src="' + card.cardImage + '" />',
+      card.rarity, 
+      card.character,
+      '<img height="35" src="' + card.attribute + '" />',
+      card.rFactorScene,
+      card.STR,
+      card.HP,
+      card.SP,
+      card.ATK,
+      card.DEF,
+      card.HIT,
+      card.AVO,
+      card.LUK
+      ]);
+    });
+    table.draw();
   }
-  return out;
-};
+});
 
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
@@ -197,19 +206,6 @@ function w3_close() {
   overlayBg.style.display = "none";
 }
 
-
-</script>
-
-<script type="text/javascript">
-//set the width of the search bar to fit the column
-    $('#tierlist').DataTable({
-        responsive: true,
-        initComplete: function () {
-        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
-        }
-    });
-    
-</script>
 
 </body>
 </html>
