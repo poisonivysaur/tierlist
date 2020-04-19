@@ -143,10 +143,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
 <script type="text/javascript">
+
 $(document).ready(function() {
+  const overallSTR = 6;
   // initialize DataTable
-  var table = $('#tierlist').DataTable({
+  const table = $('#tierlist').DataTable({
       responsive: true,
+      order: [[ overallSTR, 'desc' ]],
       initComplete: function () {
         $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
       }
@@ -163,8 +166,9 @@ $(document).ready(function() {
   // add fetched cards to DataTable
   function addData(cards){
     cards.forEach(card => {
+      console.log(card.cardType)
       table.row.add([
-      '<img height="35" src="' + card.skill + '" />',
+      '<img height="35" src="' + card.skill + '" /><p>' + card.cardType + '</p>',
       '<img height="70" src="' + card.cardImage + '" />',
       card.rarity, 
       card.character,
