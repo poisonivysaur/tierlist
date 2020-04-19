@@ -166,7 +166,6 @@ $(document).ready(function() {
   // add fetched cards to DataTable
   function addData(cards){
     cards.forEach(card => {
-      console.log(card.cardType)
       table.row.add([
       '<img height="35" src="' + card.skill + '" /><p>' + card.cardType + '</p>',
       '<img height="70" src="' + card.cardImage + '" />',
