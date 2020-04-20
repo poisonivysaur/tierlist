@@ -31,15 +31,16 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right">
-      <img height="30" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/assets/Boku_no_Hero_Academia_Logo.png"/></span>
+      <img height="30" src="https://raw.githubusercontent.com/mha-smashrising/rfactor-db/master/assets/Boku_no_Hero_Academia_Logo.png"/>
+      </span>
 </div>
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img height="100" src="https://raw.githubusercontent.com/poisonivysaur/mha-srdb/master/favicon.png" class="w3-circle w3-margin-right">
-      <!-- <iframe src="https://discordapp.com/widget?id=593021029350113280&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe> -->
+      <img height="100" src="https://raw.githubusercontent.com/mha-smashrising/tierlist/master/favicon.png" class="w3-circle w3-margin-right">
+      <a href="https://discord.gg/WSMa5qD">Discord</a>
     </div>
     
     <!--
@@ -57,8 +58,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="/tierlist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-trophy fa-fw"></i>  Tier List</a>
-    <a href="passives.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-info-circle fa-fw"></i>  Worthwhile Passives</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-calculator fa-fw"></i>  STR Calculator</a><hr><!--
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-info-circle fa-fw"></i>  Worthwhile Passives</a>
+    <a href="calculator.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-calculator fa-fw"></i>  STR Calculator</a><hr><!--
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
@@ -78,47 +79,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Header -->
   <header class="w3-container" style="padding-top:22px">
-      <h2>SMASH RISING STR Calculator</h2>
-    <h4><b> Calculate how much power your card contributes to your team!</b></h4>
-    <!-- <h5>Last Updated: 04-14-2020</h5> -->
+      <h2>SMASH RISING Worthwhile Passive R-factors</h2>
+    <h4><b> Page under construction uwu</b></h4>
+    <h5>Last Updated: 04-20-2020 (happy birthday to Bakugo)</h5>
   </header>
 
   <div class="w3-container w3-padding-32">
     <div class="w3-row">
-      
-        <div class="w3-card-4">
-            <div class="w3-container w3-teal">
-                <h2 id="str">STR: 0</h2>
-            </div>
-            <div class="w3-container w3-padding">
-            <p>      
-            <label class="w3-text-teal"><b>HP Value</b></label>
-            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="hpval" name="hpval"></p>
-            <p>      
-            <label class="w3-text-teal"><b>SP Value</b></label>
-            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="spval" name="spval"></p>
-            <p>      
-            <label class="w3-text-teal"><b>ATK Value</b></label>
-            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="atkval" name="atkval"></p>
-            <p>      
-            <label class="w3-text-teal"><b>DEF Value</b></label>
-            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="defval" name="defval"></p>
-            <p>      
-            <label class="w3-text-teal"><b>HIT Value</b></label>
-            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="hitval" name="hitval"></p>
-            <p>      
-            <label class="w3-text-teal"><b>AVO Value</b></label>
-            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="avoval" name="avoval"></p>
-            <p>      
-            <label class="w3-text-teal"><b>LUK Value</b></label>
-            <input class="w3-input w3-border w3-sand" type="number" min=0 value=0 id="lukval" name="lukval"></p>
-
-            <button class="w3-btn w3-teal" onclick="calculate()">Calculate</button>
-            <input class="w3-btn w3-teal" type="reset" onclick="reset()">
-            </div>
-        </div>
-      
-      
+      <div class="w3-container">
+        <!-- <h4 class="w3-bottombar w3-border-red">力</h4> -->
+        
+      </div>
     </div>
   </div>
 
@@ -132,32 +103,51 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </div>
 
 
-<script>
-// Calculate STR
-function calculate(){
-    STR = 0;
-    hp = document.getElementById("hpval").value;
-    sp = document.getElementById("spval").value;
-    atk = document.getElementById("atkval").value;
-    def = document.getElementById("defval").value;
-    hit = document.getElementById("hitval").value;
-    avo = document.getElementById("avoval").value;
-    luk = document.getElementById("lukval").value;
+<script type="text/javascript">
 
-    STR = hp/100 + atk/100 + def/100 + hit/1000 + avo/1000 + luk/1000;
-    document.getElementById("str").innerHTML = "STR: " + Math.floor(STR);
-}
+$(document).ready(function() {
+  const overallSTR = 6;
+  // initialize DataTable
+  const table = $('#tierlist').DataTable({
+      responsive: true,
+      order: [[ overallSTR, 'desc' ]],
+      initComplete: function () {
+        $('.dataTables_filter input[type="search"]').css({ 'width': '50px', 'display': 'inline-block' });
+      }
+  });
 
-// Reset calculator values
-function reset(){
-    document.getElementById("hpval").value = 0;
-    document.getElementById("spval").value = 0;
-    document.getElementById("atkval").value = 0;
-    document.getElementById("defval").value = 0;
-    document.getElementById("hitval").value = 0;
-    document.getElementById("avoval").value = 0;
-    document.getElementById("lukval").value = 0;
-}
+    // Data URL
+  const URL = "https://raw.githubusercontent.com/mha-smashrising/rfactor-db/master/data.json";
+
+  // Promise fetch the data and display it
+  fetch(URL)
+    .then((response) => response.json())
+    .then((cards) => addData(cards));
+
+  // add fetched cards to DataTable
+  function addData(cards){
+    cards.forEach(card => {
+      console.log(card.cardType)
+      table.row.add([
+      '<img height="35" src="' + card.skill + '" /><p>' + card.cardType + '</p>',
+      '<img height="70" src="' + card.cardImage + '" />',
+      card.rarity, 
+      card.character,
+      '<img height="35" src="' + card.attribute + '" /><p>' + card.atrDesc + '</p>',
+      card.rFactorScene,
+      card.STR,
+      card.HP,
+      card.SP,
+      card.ATK,
+      card.DEF,
+      card.HIT,
+      card.AVO,
+      card.LUK
+      ]);
+    });
+    table.draw();
+  }
+});
 
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
@@ -181,7 +171,6 @@ function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
-
 
 </script>
 
